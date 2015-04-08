@@ -118,15 +118,19 @@ revealjs_presentation <- function(incremental = FALSE,
   
   # theme
   theme <- match.arg(theme, revealjs_themes())
-  if (identical(theme, "default"))
-    theme <- "simple"
-  else if (identical(theme, "dark"))
-    theme <- "default"
-  if (theme %in% c("default", "blood", "moon", "night"))
-    args <- c(args, "--variable", "theme-dark")
+  # if (identical(theme, "default"))
+  #   theme <- "simple"
+  # else if (identical(theme, "dark"))
+  #   theme <- "default"
+  # if (theme %in% c("default", "blood", "moon", "night"))
+  #   args <- c(args, "--variable", "theme-dark")
   args <- c(args, "--variable", paste("theme=", theme, sep=""))
   
-  
+  # highlight background
+  light_themes <- c("simple", "sky", "beige", "serif", "white", "solarized")
+  if(theme %in% light_themes)
+    args <- c(args, "--variable", "theme-light")
+
   # transition
   transition <- match.arg(transition, revealjs_transitions())
   args <- c(args, "--variable", paste("transition=", transition, sep=""))

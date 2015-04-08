@@ -91,6 +91,18 @@ $if(theme-dark)$
 </style>
 $endif$
 
+$if(theme-light)$
+<style type="text/css">
+.reveal pre code {
+  background: #ECE2D7;
+  color: #494949;
+}
+.reveal section img {
+  border: 0px;
+}
+</style>
+$endif$
+
 $if(css)$
 $for(css)$
     <link rel="stylesheet" href="$css$"/>
@@ -101,7 +113,7 @@ $endif$
       var link = document.createElement( 'link' );
       link.rel = 'stylesheet';
       link.type = 'text/css';
-      link.href = window.location.search.match( /print-pdf/gi ) ? 'css/print/pdf.css' : 'css/print/paper.css';
+      link.href = window.location.search.match( /print-pdf/gi ) ? '$revealjs-url$/css/print/pdf.css' : '$revealjs-url$/css/print/paper.css';
       document.getElementsByTagName( 'head' )[0].appendChild( link );
     </script>
     <!--[if lt IE 9]>
